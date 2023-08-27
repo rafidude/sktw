@@ -1,12 +1,12 @@
 <script>
-    import {show} from "$lib/store.js"
-    import Collapse from "./Collapse.svelte"
-    
+    import { show, navWidth } from '$lib/store.js'
+
+    import Collapse from './Collapse.svelte'
 </script>
 
-<nav class="w-80 bg-gray-900 p-4">
+<nav class="sm:w-40 md:w-{$navWidth} bg-gray-900 p-4">
     <Collapse />
-    <ul>
+    <ul class="mt-4">
         <li class="rounded-md py-2 pl-4 hover:bg-gray-700">
             <a
                 class="flex gap-x-3 p-2 text-sm font-semibold leading-6 text-white"
@@ -27,7 +27,7 @@
                     />
                 </svg>
                 {#if $show}
-                    <span>Home</span>
+                    <span class="hidden md:block">Home</span>
                 {/if}
             </a>
         </li>
@@ -48,7 +48,7 @@
                     />
                 </svg>
                 {#if $show}
-                    <span>Expand</span>
+                    <span class="hidden md:block">Expand</span>
                 {/if}
             </a>
         </li>
